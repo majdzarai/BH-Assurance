@@ -1,0 +1,140 @@
+{
+  "common": {
+    "getStarted": "Commencer",
+    "signUp": "S'inscrire",
+    "learnMore": "En savoir plus",
+    "copyright": "© {year} BH Assurance. Tous droits réservés.",
+    "cancel": "Annuler",
+    "saveChanges": "Enregistrer les modifications",
+    "close": "Fermer",
+    "openChat": "Ouvrir le chat",
+    "saveSettings": "Enregistrer les paramètres",
+    "logout": "Déconnexion",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "submit": "Soumettre",
+    "cinNumber": "Numéro CIN",
+    "back": "Retour",
+    "downloadPdf": "Télécharger le PDF"
+  },
+  "signInPage": {
+    "title": "Bon Retour",
+    "description": "Connectez-vous à votre compte pour continuer",
+    "dontHaveAccount": "Vous n'avez pas de compte ?",
+    "signUpNow": "Inscrivez-vous maintenant"
+  },
+  "signUpPage": {
+    "title": "Créer un Compte",
+    "description": "Inscrivez-vous pour commencer avec BH Assurance",
+    "alreadyHaveAccount": "Vous avez déjà un compte ?",
+    "signIn": "Se connecter"
+  },
+  "learnMorePage": {
+    "title": "En Savoir Plus sur BH Assurance",
+    "subtitle": "Votre Assistant IA de Confiance",
+    "description": "Découvrez comment notre assistant alimenté par l'IA peut vous aider à naviguer dans vos besoins d'assurance avec des conseils d'experts, une disponibilité 24/7 et un support personnalisé adapté à vos exigences spécifiques."
+  },
+  "landingPage": {
+    "navbar": {
+      "home": "Accueil",
+      "signIn": "Se connecter"
+    },
+    "hero": {
+      "titlePart1": "Votre Assistant",
+      "titlePart2": "BH Assurance",
+      "titlePart3": "De Confiance",
+      "description": "Bénéficiez d'un support fluide et de conseils d'experts avec notre assistant alimenté par l'IA, conçu pour vous aider à gérer vos besoins efficacement.",
+      "ctaPrimary": "Démarrer une nouvelle discussion",
+      "ctaSecondary": "En savoir plus"
+    },
+    "features": {
+      "title": "Fonctionnalités Conçues Pour Vous",
+      "card1": {
+        "title": "Conversations Intelligentes",
+        "description": "Interagissez avec une IA qui comprend vos requêtes et fournit des réponses précises et contextuelles."
+      },
+      "card2": {
+        "title": "Sécurisé et Privé",
+        "description": "Vos conversations sont confidentielles et sécurisées grâce à des normes de chiffrement avancées."
+      },
+      "card3": {
+        "title": "Disponibilité 24/7",
+        "description": "Obtenez de l'aide à tout moment, n'importe où. Notre assistant est toujours prêt à vous aider."
+      },
+      "card4": {
+        "title": "Connaissances Approfondies",
+        "description": "Accédez à une vaste base de données d'informations pour toutes vos questions et besoins liés à l'assurance."
+      }
+    },
+    "ctaSection": {
+      "title": "Prêt à Faire la Différence ?",
+      "description": "Rejoignez BH Assurance dès aujourd'hui et simplifiez vos interactions avec notre assistant intelligent.",
+      "button": "S'inscrire maintenant"
+    }
+  },
+  "chatInterface": {
+    "newChat": "Nouvelle Discussion",
+    "chatAssistantTitle": "BH Assurance",
+    "chatAssistantDescription": "Assistant Professionnel BH Assurance",
+    "userProfile": "Profil Utilisateur",
+    "profile": "Profil",
+    "settings": "Paramètres",
+    "signout": "Se déconnecter",
+    "typeMessagePlaceholder": "Tapez votre message ici...",
+    "sendInstructions": "Appuyez sur Entrée pour envoyer, Maj + Entrée pour une nouvelle ligne",
+    "uploadedFile": "📎 Fichier téléversé : {fileName}",
+    "simulatedResponse": "Merci pour votre message. Ceci est une réponse simulée de l'assistant BH Assurance. Dans une implémentation réelle, cela serait connecté à un service d'IA qui fournit des informations précises basées sur des sources fiables.",
+    "seeReferences": "Voir les références ({count})",
+    "thinking": "Réflexion en cours...",
+    "referenceModal": {
+      "title": "Références",
+      "textSnippets": "Extraits de Texte",
+      "documentView": "Affichage du Document",
+      "noPdfAvailable": "Aucun PDF disponible pour cette référence.",
+      "selectSnippet": "Sélectionnez un extrait à gauche pour afficher son document.",
+      "pdfSupportMessage": "Votre navigateur ne prend pas en charge les PDF. Veuillez télécharger le PDF pour le visualiser : "
+    },
+    "profileModal": {
+      "title": "Profil Utilisateur",
+      "description": "Gérez vos informations de profil et votre mot de passe.",
+      "changeAvatar": "Changer d'Avatar",
+      "profileInformation": "Informations de Profil",
+      "name": "Nom",
+      "email": "E-mail",
+      "changePassword": "Changer de Mot de Passe",
+      "currentPassword": "Mot de Passe Actuel",
+      "newPassword": "Nouveau Mot de Passe",
+      "confirmNewPassword": "Confirmer le Nouveau Mot de Passe"
+    },
+    "settingsModal": {
+      "title": "Paramètres",
+      "description": "Gérez vos préférences d'application.",
+      "generalSettings": "Paramètres Généraux",
+      "theme": "Thème",
+      "light": "Clair",
+      "dark": "Sombre",
+      "system": "Système",
+      "language": "Langue",
+      "english": "Anglais",
+      "spanish": "Espagnol",
+      "french": "Français",
+      "arabic": "Arabe",
+      "notificationSettings": "Paramètres de Notification",
+      "emailNotifications": "Notifications par E-mail",
+      "inAppAlerts": "Alertes intégrées à l'application",
+      "privacySettings": "Paramètres de Confidentialité",
+      "allowDataSharing": "Autoriser le Partage de Données",
+      "accountManagement": "Gestion du Compte",
+      "deleteAccount": "Supprimer le Compte"
+    },
+    "conversationHistory": {
+      "today": "Aujourd'hui",
+      "yesterday": "Hier",
+      "title1": "Discussion BH Assurance",
+      "preview1": "Discussion sur la création d'une interface utilisateur de chat moderne avec React...",
+      "title2": "Conversation Précédente",
+      "preview2": "Aide à l'implémentation de l'authentification et de la gestion des utilisateurs..."
+    }
+  }
+}

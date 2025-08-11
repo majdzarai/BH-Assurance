@@ -1,0 +1,140 @@
+{
+  "common": {
+    "getStarted": "Get Started",
+    "signUp": "Sign Up",
+    "learnMore": "Learn More",
+    "copyright": "© {year} BH Assurance. All rights reserved.",
+    "cancel": "Cancel",
+    "saveChanges": "Save Changes",
+    "close": "Close",
+    "openChat": "Open Chat",
+    "saveSettings": "Save Settings",
+    "logout": "Logout",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "submit": "Submit",
+    "cinNumber": "CIN Number",
+    "back": "Back",
+    "downloadPdf": "Download PDF"
+  },
+  "signInPage": {
+    "title": "Welcome Back",
+    "description": "Sign in to your account to continue",
+    "dontHaveAccount": "Don't have an account?",
+    "signUpNow": "Sign up now"
+  },
+  "signUpPage": {
+    "title": "Create Account",
+    "description": "Sign up to get started with BH Assurance",
+    "alreadyHaveAccount": "Already have an account?",
+    "signIn": "Sign in"
+  },
+  "learnMorePage": {
+    "title": "Learn More About BH Assurance",
+    "subtitle": "Your Trusted AI Assistant",
+    "description": "Discover how our AI-powered assistant can help you navigate your insurance and assurance needs with expert guidance, 24/7 availability, and personalized support tailored to your specific requirements."
+  },
+  "landingPage": {
+    "navbar": {
+      "home": "Home",
+      "signIn": "Sign In"
+    },
+    "hero": {
+      "titlePart1": "Your Trusted",
+      "titlePart2": "BH Assurance",
+      "titlePart3": "Assistant",
+      "description": "Experience seamless support and expert guidance with our AI-powered assistant, designed to help you navigate your needs efficiently and effectively.",
+      "ctaPrimary": "Start a New Chat",
+      "ctaSecondary": "Learn More"
+    },
+    "features": {
+      "title": "Features Designed For You",
+      "card1": {
+        "title": "Intelligent Conversations",
+        "description": "Engage with an AI that understands your queries and provides accurate, context-aware responses."
+      },
+      "card2": {
+        "title": "Secure & Private",
+        "description": "Your conversations are kept confidential and secure with advanced encryption standards."
+      },
+      "card3": {
+        "title": "24/7 Availability",
+        "description": "Get assistance anytime, anywhere. Our assistant is always ready to help you."
+      },
+      "card4": {
+        "title": "Comprehensive Knowledge",
+        "description": "Access a vast database of information for all your assurance-related questions and needs."
+      }
+    },
+    "ctaSection": {
+      "title": "Ready to Experience the Difference?",
+      "description": "Join BH Assurance today and streamline your interactions with our intelligent assistant.",
+      "button": "Sign Up Now"
+    }
+  },
+  "chatInterface": {
+    "newChat": "New Chat",
+    "chatAssistantTitle": "BH Assurance",
+    "chatAssistantDescription": "Professional BH Assurance Assistant",
+    "userProfile": "User Profile",
+    "profile": "Profile",
+    "settings": "Settings",
+    "signout": "Sign out",
+    "typeMessagePlaceholder": "Type your message here...",
+    "sendInstructions": "Press Enter to send, Shift + Enter for new line",
+    "uploadedFile": "📎 Uploaded file: {fileName}",
+    "simulatedResponse": "Thank you for your message. This is a simulated response from the BH Assurance assistant. In a real implementation, this would be connected to an AI service that provides accurate information based on reliable sources.",
+    "seeReferences": "See references ({count})",
+    "thinking": "Thinking...",
+    "referenceModal": {
+      "title": "References",
+      "textSnippets": "Text Snippets",
+      "documentView": "Document View",
+      "noPdfAvailable": "No PDF available for this reference.",
+      "selectSnippet": "Select a snippet from the left to view its document.",
+      "pdfSupportMessage": "Your browser does not support PDFs. Please download the PDF to view it: "
+    },
+    "profileModal": {
+      "title": "User Profile",
+      "description": "Manage your profile information and password.",
+      "changeAvatar": "Change Avatar",
+      "profileInformation": "Profile Information",
+      "name": "Name",
+      "email": "Email",
+      "changePassword": "Change Password",
+      "currentPassword": "Current Password",
+      "newPassword": "New Password",
+      "confirmNewPassword": "Confirm New Password"
+    },
+    "settingsModal": {
+      "title": "Settings",
+      "description": "Manage your application preferences.",
+      "generalSettings": "General Settings",
+      "theme": "Theme",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System",
+      "language": "Language",
+      "english": "English",
+      "spanish": "Spanish",
+      "french": "French",
+      "arabic": "Arabic",
+      "notificationSettings": "Notification Settings",
+      "emailNotifications": "Email Notifications",
+      "inAppAlerts": "In-App Alerts",
+      "privacySettings": "Privacy Settings",
+      "allowDataSharing": "Allow Data Sharing",
+      "accountManagement": "Account Management",
+      "deleteAccount": "Delete Account"
+    },
+    "conversationHistory": {
+      "today": "Today",
+      "yesterday": "Yesterday",
+      "title1": "BH Assurance Chat",
+      "preview1": "Discussion about creating a modern chat UI with React...",
+      "title2": "Previous Conversation",
+      "preview2": "Help with implementing authentication and user management..."
+    }
+  }
+}
