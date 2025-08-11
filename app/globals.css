@@ -64,6 +64,10 @@
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
+<<<<<<< HEAD
+=======
+  --radius: 0.625rem;
+>>>>>>> d59204b3ef3e39d0368fa461c5f26f3ef9d58b4c
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
@@ -85,7 +89,11 @@
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
+<<<<<<< HEAD
   --color-secondary-foreground: var(--secondary-secondary);
+=======
+  --color-secondary-foreground: var(--secondary-foreground);
+>>>>>>> d59204b3ef3e39d0368fa461c5f26f3ef9d58b4c
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
@@ -123,6 +131,7 @@
   }
 }
 
+<<<<<<< HEAD
 /* RTL Support for Arabic Language */
 [dir="rtl"] {
   /* Chat messages alignment */
@@ -221,3 +230,32 @@
   right: 0.5rem;
   left: auto;
 }
+=======
+/* Custom Scrollbar Styling for Webkit browsers (Chrome, Safari) */
+/* This will apply to all scrollable elements */
+::-webkit-scrollbar {
+  width: 8px; /* Width of the vertical scrollbar */
+  height: 8px; /* Height of the horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Light gray track */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; /* Darker gray thumb */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Even darker gray on hover */
+}
+
+/* For Firefox */
+/* Note: Firefox scrollbar styling is more limited */
+html {
+  scrollbar-width: thin; /* "auto" or "thin" */
+  scrollbar-color: #888 #f1f1f1; /* thumb color track color */
+}
+>>>>>>> d59204b3ef3e39d0368fa461c5f26f3ef9d58b4c
