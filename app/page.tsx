@@ -7,7 +7,7 @@ export default function LandingPage() {
       {/* Navbar */}
       <header className="flex items-center justify-between h-16 px-6 border-b border-gray-200 bg-white">
         <Link href="/" className="flex items-center gap-2 font-bold text-lg">
-          <span className="text-black">BH Assurance</span>
+          <span className="text-black">TaaminAI</span>
         </Link>
         <nav className="flex items-center gap-4">
           <Button asChild variant="ghost" className="text-gray-700 hover:text-black">

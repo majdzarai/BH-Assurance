@@ -5,7 +5,7 @@ import './globals.css'
 import { headers } from 'next/headers'
 
 export const metadata: Metadata = {
-  title: 'BH Assurance',
+  title: 'TaamnAI',
   description: 'Your trusted AI assistant for assurance needs.',
   icons: {
     icon: '/placeholder-logo.png', // Using existing logo instead of missing favicon

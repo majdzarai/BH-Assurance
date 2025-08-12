@@ -8,7 +8,7 @@ import Negotiator from "negotiator"
 function getLocale(request: NextRequest): string | undefined {
   // Negotiator expects plain object
   const negotiatorHeaders: Record<string, string> = {}
-  request.headers.forEach((value, key) => (negotiatorHeaders[key] = value))
+  request.headers.forEach((value, key) => (negotiatorHeaders[key] = negotiatorHeaders[key]))
 
   // @ts-ignore locales are readonly
   const locales: string[] = i18n.locales
@@ -32,6 +32,25 @@ export function middleware(request: NextRequest) {
 
     // e.g. /products -> /en/products
     return NextResponse.redirect(new URL(`/${locale}/${pathname}`, request.url))
+  }
+
+  // Check if user is trying to access protected routes
+  const isProtectedRoute = pathname.includes('/chat')
+  
+  if (isProtectedRoute) {
+    // Get the locale from the current path
+    const locale = pathname.split('/')[1]
+    
+    // Check if user has authentication token in cookies or headers
+    const authToken = request.cookies.get('authToken')?.value || 
+                     request.headers.get('authorization')?.replace('Bearer ', '')
+    
+    if (!authToken) {
+      // Redirect to signin page if not authenticated
+      const signinUrl = new URL(`/${locale}/signin`, request.url)
+      signinUrl.searchParams.set('redirect', pathname)
+      return NextResponse.redirect(signinUrl)
+    }
   }
 }
 

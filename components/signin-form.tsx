@@ -28,13 +28,11 @@ export function SignInForm({ dict, commonDict, lang }: SignInFormProps) {
   const safeCommonDict = commonDict || {
     email: "Email",
     password: "Password",
-    cinNumber: "CIN Number",
     submit: "Submit",
   }
 
   const [formData, setFormData] = useState({
     email: "",
-    cinNumber: "",
     password: "",
   })
   const [showPassword, setShowPassword] = useState(false)
@@ -50,12 +48,6 @@ export function SignInForm({ dict, commonDict, lang }: SignInFormProps) {
       newErrors.email = "Email is required"
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = "Please enter a valid email address"
-    }
-
-    if (!formData.cinNumber) {
-      newErrors.cinNumber = "CIN number is required"
-    } else if (formData.cinNumber.length < 5) {
-      newErrors.cinNumber = "CIN number must be at least 5 characters"
     }
 
     if (!formData.password) {
@@ -75,20 +67,45 @@ export function SignInForm({ dict, commonDict, lang }: SignInFormProps) {
     setIsLoading(true)
 
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 2000))
+      // Call backend API
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
+      const response = await fetch(`${apiUrl}/api/auth/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+        })
+      })
 
-      if (
-        formData.email === "user@example.com" &&
-        formData.cinNumber === "12345" &&
-        formData.password === "password123"
-      ) {
+      if (response.ok) {
+        const data = await response.json()
+        
+        // Store authentication data
+        localStorage.setItem('authToken', data.access_token)
+        localStorage.setItem('userData', JSON.stringify(data.user))
+        
+        // Also store in cookies for middleware access
+        document.cookie = `authToken=${data.access_token}; path=/; max-age=${30 * 24 * 60 * 60}` // 30 days
+        
         setSuccess("Sign-in successful! Redirecting to chat...")
+        
+        // Check if there's a redirect URL
+        const urlParams = new URLSearchParams(window.location.search)
+        const redirectUrl = urlParams.get('redirect')
+        
         setTimeout(() => {
-          window.location.href = `/${lang}/chat`
+          if (redirectUrl) {
+            window.location.href = redirectUrl
+          } else {
+            window.location.href = `/${lang}/chat`
+          }
         }, 1500)
       } else {
-        setErrors({ general: "Invalid credentials. Please check your email, CIN number, and password." })
+        const errorData = await response.json()
+        setErrors({ general: errorData.message || "Invalid credentials. Please check your email and password." })
       }
     } catch (error) {
       setErrors({ general: "Something went wrong. Please try again." })
@@ -139,31 +156,7 @@ export function SignInForm({ dict, commonDict, lang }: SignInFormProps) {
               )}
             </div>
 
-            {/* CIN Number Field */}
-            <div className="space-y-2">
-              <Label htmlFor="cin-number" className={isRTL ? "text-right" : "text-left"}>
-                {safeCommonDict.cinNumber}
-              </Label>
-              <Input
-                id="cin-number"
-                type="text"
-                placeholder="e.g., 12345"
-                value={formData.cinNumber}
-                onChange={(e) => handleInputChange("cinNumber", e.target.value)}
-                className={`transition-all duration-200 ${
-                  errors.cinNumber
-                    ? "border-red-300 focus:border-red-500 focus:ring-red-500"
-                    : "border-gray-300 focus:border-black focus:ring-black"
-                } ${isRTL ? "text-right" : "text-left"}`}
-                disabled={isLoading}
-              />
-              {errors.cinNumber && (
-                <div className="flex items-center gap-2 text-red-600 text-sm">
-                  <AlertCircle className="w-4 h-4" />
-                  {errors.cinNumber}
-                </div>
-              )}
-            </div>
+
 
             {/* Password Field */}
             <div className="space-y-2">
