@@ -573,6 +573,7 @@ export function ChatInterface({ dict, commonDict, lang }: ChatInterfaceProps) {
                     <Settings className={`h-4 w-4 ${isRTL ? "ml-2" : "mr-2"}`} />
                     {dict.settings || "Settings"}
                   </DropdownMenuItem>
+                  
                   <DropdownMenuSeparator />
                   <DropdownMenuItem onClick={handleLogout} disabled={isLoggingOut}>
                     {isLoggingOut ? (

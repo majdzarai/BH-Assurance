@@ -123,7 +123,7 @@ export function SignUpForm({ dict, commonDict, lang }: SignUpFormProps) {
 
     try {
       // Call backend API
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
       const response = await fetch(`${apiUrl}/api/auth/register`, {
         method: 'POST',
         headers: {
@@ -149,19 +149,30 @@ export function SignUpForm({ dict, commonDict, lang }: SignUpFormProps) {
         // Also store in cookies for middleware access
         document.cookie = `authToken=${data.access_token}; path=/; max-age=${30 * 24 * 60 * 60}` // 30 days
         
-        setSuccess("Account created successfully! Redirecting to chat...")
-        
         // Check if there's a redirect URL
         const urlParams = new URLSearchParams(window.location.search)
         const redirectUrl = urlParams.get('redirect')
         
-        setTimeout(() => {
-          if (redirectUrl) {
+        if (redirectUrl) {
+          // If there's a specific redirect URL, use it
+          setSuccess("Account created successfully! Redirecting...")
+          setTimeout(() => {
             window.location.href = redirectUrl
+          }, 1500)
+        } else {
+          // Check user role and redirect accordingly
+          if (data.user.role === 'admin') {
+            setSuccess("Account created successfully! Redirecting to Admin Dashboard...")
+            setTimeout(() => {
+              window.location.href = `/${lang}/admin`
+            }, 1500)
           } else {
-            window.location.href = `/${lang}/chat`
+            setSuccess("Account created successfully! Redirecting to Chat...")
+            setTimeout(() => {
+              window.location.href = `/${lang}/chat`
+            }, 1500)
           }
-        }, 1500)
+        }
       } else {
         const errorData = await response.json()
         const errorMessage = errorData.detail || errorData.message || "Something went wrong. Please try again."

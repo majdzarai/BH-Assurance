@@ -68,7 +68,7 @@ export function SignInForm({ dict, commonDict, lang }: SignInFormProps) {
 
     try {
       // Call backend API
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
       const response = await fetch(`${apiUrl}/api/auth/login`, {
         method: 'POST',
         headers: {
@@ -83,6 +83,11 @@ export function SignInForm({ dict, commonDict, lang }: SignInFormProps) {
       if (response.ok) {
         const data = await response.json()
         
+        // Debug: Log the response data
+        console.log('🔍 Login response data:', data)
+        console.log('🔍 User data:', data.user)
+        console.log('🔍 User role:', data.user?.role)
+        
         // Store authentication data
         localStorage.setItem('authToken', data.access_token)
         localStorage.setItem('userData', JSON.stringify(data.user))
@@ -90,19 +95,36 @@ export function SignInForm({ dict, commonDict, lang }: SignInFormProps) {
         // Also store in cookies for middleware access
         document.cookie = `authToken=${data.access_token}; path=/; max-age=${30 * 24 * 60 * 60}` // 30 days
         
-        setSuccess("Sign-in successful! Redirecting to chat...")
-        
         // Check if there's a redirect URL
         const urlParams = new URLSearchParams(window.location.search)
         const redirectUrl = urlParams.get('redirect')
         
-        setTimeout(() => {
-          if (redirectUrl) {
+        if (redirectUrl) {
+          // If there's a specific redirect URL, use it
+          setSuccess("Sign-in successful! Redirecting...")
+          setTimeout(() => {
             window.location.href = redirectUrl
+          }, 1500)
+        } else {
+          // Check user role and redirect accordingly
+          console.log('🔍 Checking user role for redirect...')
+          console.log('🔍 User role:', data.user.role)
+          console.log('🔍 Is admin?', data.user.role === 'admin')
+          
+          if (data.user.role === 'admin') {
+            console.log('🔍 Redirecting to admin dashboard...')
+            setSuccess("Sign-in successful! Redirecting to Admin Dashboard...")
+            setTimeout(() => {
+              window.location.href = `/${lang}/admin`
+            }, 1500)
           } else {
-            window.location.href = `/${lang}/chat`
+            console.log('🔍 Redirecting to chat...')
+            setSuccess("Sign-in successful! Redirecting to Chat...")
+            setTimeout(() => {
+              window.location.href = `/${lang}/chat`
+            }, 1500)
           }
-        }, 1500)
+        }
       } else {
         const errorData = await response.json()
         setErrors({ general: errorData.message || "Invalid credentials. Please check your email and password." })
