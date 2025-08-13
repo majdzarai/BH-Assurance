@@ -123,7 +123,7 @@ export function SignUpForm({ dict, commonDict, lang }: SignUpFormProps) {
 
     try {
       // Call backend API
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL'
       const response = await fetch(`${apiUrl}/api/auth/register`, {
         method: 'POST',
         headers: {
